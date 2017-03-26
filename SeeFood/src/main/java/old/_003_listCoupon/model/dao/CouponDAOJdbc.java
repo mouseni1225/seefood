@@ -59,14 +59,13 @@ public class CouponDAOJdbc {
 
 		 try {
 		 LocalDateTime dd = LocalDateTime.of(2010, 9, 9, 12, 30, 30, 30);
-		 File infile = new File("C:\\Users\\Student\\Desktop\\pokemon.png");
+		 File infile = new File("C:\\Users\\jeff\\Desktop\\123.jpg");
 		 InputStream fis = new FileInputStream(infile);
 		 byte[] test = IOUtils.toByteArray(fis);
 		 Blob test2;
 		 test2 = new javax.sql.rowset.serial.SerialBlob(test);
 		 CouponBean update = couponDAOJdbc.update(10, 100, "修改測試", test2, 100,
-		 dd, new java.util.Date(), 9);
-		 update.setCpId(2);
+		 dd, new java.util.Date(), 2);
 		 System.out.println(update);
 		
 		 } catch (Exception e) {
@@ -82,7 +81,7 @@ public class CouponDAOJdbc {
 
 	private String URL = "jdbc:sqlserver://localhost:1433;databaseName=EEIT92";
 	private String USERNAME = "sa";
-	private String PASSWORD = "passw0rd";
+	private String PASSWORD = "sa123456";
 
 	private static final String SELECT_BY_ID = "select * from coupon where cpid=?";
 

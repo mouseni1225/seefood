@@ -30,20 +30,21 @@ public class GetImageFromDB extends HttpServlet {
 			DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/xxx");
 			conn = ds.getConnection();
 			PreparedStatement pstmt = null;
-			// System.out.println("GetImageFromDB, Type==>" + type);
-			// System.out.println("GetImageFromDB, ID==>" + id);
-			if (type.equalsIgnoreCase("coupon")) { // 讀取coupon表格
-				pstmt = conn.prepareStatement("SELECT cpPhoto from coupon where cpid = ?");
-			} 
-			else if (type.equalsIgnoreCase("MEMBER")) { // 讀取Member表格
-				pstmt = conn.prepareStatement("SELECT memberBigPhoto from Member where memberId = ?");
-			}
+//			 System.out.println("GetImageFromDB, Type==>" + type);
+//			 System.out.println("GetImageFromDB, ID==>" + id);
+//			if (type.equalsIgnoreCase("coupon")) { // 讀取coupon表格
+				pstmt = conn.prepareStatement("SELECT cpid ,cpPhoto  from coupon where cpid = ?");
+//		}
+//			else if (type.equalsIgnoreCase("MEMBER")) { // 讀取Member表格
+//				pstmt = conn.prepareStatement("SELECT memberBigPhoto from Member where memberId = ?");
+//			}
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
 				// Image欄位可以取出InputStream物件
-				String fileName = rs.getString(1);
-				is = rs.getBinaryStream(2);
+
+				String fileName = rs.getString(1);//對應欄位 cpid
+				is = rs.getBinaryStream(2);//對應欄位 cpPhoto
 				String mimeType = getServletContext().getMimeType(fileName);
 				// 設定輸出資料的型態
 				response.setContentType(mimeType);
@@ -51,7 +52,7 @@ public class GetImageFromDB extends HttpServlet {
 				os = response.getOutputStream();
 
 				if (is == null) {
-					is = getServletContext().getResourceAsStream("../images/NoImage.jpg");
+					is = getServletContext().getResourceAsStream("images/NoImage.jpg");
 				}
 				int count = 0;
 				byte[] bytes = new byte[8192];

@@ -40,8 +40,8 @@
 						<TD>${aBean.cpResId}</TD>
 						<TD>${aBean.cpType}</TD>
 						<TD>${aBean.cpData}</TD>
-
-						<TD><img height='100' width='80'
+<%-- 						<TD>${aBean.cpPhoto}</TD> --%>
+						<TD><img height='100'
 							src="<c:url value='/_00_init/getImage?cpid=${aBean.cpId}&type=coupon'/>">
 						</TD>
 						<TD>${aBean.cpHowBonus}</TD>

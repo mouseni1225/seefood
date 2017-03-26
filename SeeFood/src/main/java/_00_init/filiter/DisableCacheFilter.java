@@ -44,7 +44,7 @@ public class DisableCacheFilter implements Filter {
 
 			// Causes the proxy cache to see the page as "stale",
 			// 0 means the expiry date is 1970/01/01 00:00:00 GMT
-			response.setDateHeader("Expires", 0);
+			//response.setDateHeader("Expires", 0);
 
 			// HTTP 1.0 backward compatibility
 			response.setHeader("Pragma", "no-cache");
