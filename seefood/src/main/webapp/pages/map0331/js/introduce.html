@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+		<li>
+			<a href="introduce.html">
+			
+				<img src="img/index.gif">
+				<h1>高雄地區復健診所</h1>
+			</a>
+		</li>
+				<div class="classify">
+					<ul class="classify">
+						<li><a href="#">網站簡介</a></li>
+						<li><a href="#">復健商品</a></li>
+					</ul>
+				</div>
+				<script>
+				$("ul.classify > li").mouseover(function(){
+    				$("ul.classify >li >a:first").css("color","red");
+  				});
+  				$("ul.classify > li").mouseout(function(){
+    				$("ul.classify >li >a:first").css("color","white");
+  				});
+				</script>
+		</div>
+		<div class="space"></div>
+		<div class="content">
+			<h1>網站簡介</h1>
+			<img src="img/photo.jpg">
+			<p>現在的人們<br>時常因為工作或是運動而受傷<br>卻往往不注重復健<br>而繼續加重病情<br>直到最後無法痊癒<br>而終生悔恨</p>	
+			<p>所以我們希望，可以提供一個免費平台</p>
+			<p>讓病患可以得知復健醫院位置和一些復健商品</p>	
+		</div>
+		<div class="clear"></div>
+		<div class="footer">
+			<p>
+                Copyright © 2016 by 高大資管系學生. All rights reserved.
+            </p>
+		</div>
+	</div>
+</body>
+</html>
